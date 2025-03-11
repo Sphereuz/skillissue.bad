@@ -1,3 +1,4 @@
+--2
 local httpService = game:GetService('HttpService')
 
 local SaveManager = {} do
@@ -232,10 +233,10 @@ local SaveManager = {} do
 				return self.Library:Notify('failed to load config: ' .. err)
 			end
 
-			self.Library:Notify(string.format(';oaded config %q', name))
+			self.Library:Notify(string.format('loaded config %q', name))
 		end)
 
-		section:AddButton('Overwrite config', function()
+		section:AddButton('overwrite config', function()
 			local name = Options.SaveManager_ConfigList.Value
 
 			local success, err = self:Save(name)
@@ -246,7 +247,7 @@ local SaveManager = {} do
 			self.Library:Notify(string.format('overwrote config %q', name))
 		end)
 
-		section:AddButton('Refresh list', function()
+		section:AddButton('refresh list', function()
 			Options.SaveManager_ConfigList:SetValues(self:RefreshConfigList())
 			Options.SaveManager_ConfigList:SetValue(nil)
 		end)
